@@ -1,0 +1,20 @@
+# Node files
+node_modules
+package.json
+package-lock.json
+tailwind.config.js
+postcss.config.js
+
+# Build scripts or other local tools
+vite.config.js
+webpack.config.js
+
+# Your Tailwind input file (if not needed in production)
+css/input.css
+
+# Misc
+*.log
+.DS_Store
+.env
+.gitignore
+.husky
