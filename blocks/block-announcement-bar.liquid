@@ -1,0 +1,74 @@
+{% comment %}
+  block-announcement-bar.liquid
+  Shopify block for an announcement bar with a marquee effect using Tailwind CSS.
+{% endcomment %}
+
+<announcement-bar class="w-full overflow-hidden">
+  <div class="w-[200%] overflow-hidden min-h-[40px] bg-[#53483f] flex items-center">
+    <div class="w-inherit flex whitespace-nowrap animate-marquee-scroll">
+      {% for i in (1..2) %}
+        {% for block in section.blocks %}
+          <h4 class=" basis-[16.6667%] px-[50px] text-white text-[18px] flex items-center justify-center">
+            {{ block.settings.text }}
+          </h4>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</announcement-bar>
+
+<style>
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee-scroll {
+    animation: marquee-scroll 20s linear infinite;
+  }
+</style>
+<script>
+  class Marquee extends HTMLElement {
+    constructor() {
+      super();
+      this.marqueeContainer = null;
+    }
+
+    connectedCallback() {
+      this.marqueeContainer = this.querySelector('.marquee__inner');
+      this.marqueeContainer += this.marqueeContainer;
+    }
+
+    disconnectedCallback() {}
+  }
+
+  customElements.define('announcement-bar', Marquee);
+</script>
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Announcement Text",
+          "default": "Your announcement here"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
