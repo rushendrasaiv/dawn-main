@@ -7,6 +7,8 @@
   <div class="w-[200%] min-h-[40px] bg-[#53483f] flex items-center">
     <div class="w-full flex whitespace-nowrap animate-marquee-scroll">
       {% for i in (1..2) %}
+        {% for block in section.blocks %}
+        {% endfor %}
       {% endfor %}
     </div>
   </div>
@@ -56,9 +58,7 @@
   "settings": [],
   "blocks": [
     { "type": "@theme"},
-    {
-      "type": "announcement",
-    }
+
   ],
   "presets": [
     {
