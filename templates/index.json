@@ -9,11 +9,6 @@
  */
 {
   "sections": {
-    "header_container_HrXjQB": {
-      "type": "header-container",
-      "name": "Header Container",
-      "settings": {}
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -227,7 +222,6 @@
     }
   },
   "order": [
-    "header_container_HrXjQB",
     "image_banner",
     "rich_text",
     "featured_collection",
